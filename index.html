@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stefan’s Kitchen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="game-box">
+    <h1 class="title">👨‍🍳 Stefan’s Kitchen</h1>
+    <div class="info-box">📋 Number of Recipes available: <span id="recipe-count">0</span></div>
+<p class="subtitle">Combine ingredients to discover delicious dishes!</p>
+    <div class="ingredients">
+      <button onclick="addIngredient(this, '🍞')">🍞</button>
+      <button onclick="addIngredient(this, '🥖')">🥖</button>
+      <button onclick="addIngredient(this, '🥓')">🥓</button>
+      <button onclick="addIngredient(this, '🍤')">🍤</button>
+      <button onclick="addIngredient(this, '🍗')">🍗</button>
+      <button onclick="addIngredient(this, '🥩')">🥩</button>
+      <button onclick="addIngredient(this, '🧀')">🧀</button>
+      <button onclick="addIngredient(this, '🥚')">🥚</button>
+      <button onclick="addIngredient(this, '🥛')">🥛</button>
+      <button onclick="addIngredient(this, '🧈')">🧈</button>
+      <button onclick="addIngredient(this, '🥫')">🥫</button>
+      <button onclick="addIngredient(this, '🧂')">🧂</button>
+      <button onclick="addIngredient(this, '🍚')">🍚</button>
+      <button onclick="addIngredient(this, '🫓')">🫓</button>
+      <button onclick="addIngredient(this, '🥦')">🥦</button>
+      <button onclick="addIngredient(this, '🫚')">🫚</button>
+      <button onclick="addIngredient(this, '🥕')">🥕</button>
+      <button onclick="addIngredient(this, '🧄')">🧄</button>
+      <button onclick="addIngredient(this, '🧅')">🧅</button>
+      <button onclick="addIngredient(this, '🥜')">🥜</button>
+      <button onclick="addIngredient(this, '🥔')">🥔</button>
+      <button onclick="addIngredient(this, '🍅')">🍅</button>
+      <button onclick="addIngredient(this, '🥬')">🥬</button>
+      <button onclick="addIngredient(this, '🥒')">🥒</button>
+      <button onclick="addIngredient(this, '🧆')">🧆</button>
+      <button onclick="addIngredient(this, '🌽')">🌽</button>
+      <button onclick="addIngredient(this, '🌶️')">🌶️</button>
+      <button onclick="addIngredient(this, '🍓')">🍓</button>
+    </div>
+
+    <div class="plate" id="plate">🍽️</div>
+
+    <div class="dish" id="dish"></div>
+
+    <div class="message" id="message"></div>
+
+    <button class="reset-button" onclick="resetPlate()">🧼 Reset</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
