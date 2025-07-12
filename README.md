@@ -18,7 +18,7 @@ A playful emoji cooking game made with HTML, CSS, and JavaScript. It was built a
 
 ### 🧁 Try it out live!
 
-🔗 [Play the Game]([https://stefans-kitchen.vercel.app])
+🔗 [Play the Game](https://stefans-kitchen.vercel.app)
 
 ### 🛠️ Built With
 
