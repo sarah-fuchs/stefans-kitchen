@@ -106,7 +106,7 @@ button:hover {
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: none;
   transition: background 0.2s ease;
 }
 .reset-button:hover {

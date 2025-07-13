@@ -1,7 +1,7 @@
 let selected = [];
 let ingredientsToBeDisabled = [];
 
-const rawCombos = [
+const recipes = [
   { ingredients: ["🍞", "🥓", "🧀"], dish: "🥪", name: "Sandwich" },
   { ingredients: ["🥚", "🥛", "🧈"], dish: "🥞", name: "Pancakes" },
   { ingredients: ["🥫", "🧀", "🫓"], dish: "🍕", name: "Pizza" },
@@ -20,11 +20,11 @@ const rawCombos = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("recipe-count").textContent = rawCombos.length;
-});
+  document.getElementById("recipe-count").textContent = recipes.length;
+}); 
 
 const combos = {};
-rawCombos.forEach(combo => {
+recipes.forEach(combo => {
   const key = generateKey(combo.ingredients);
   combos[key] = {
     dish: combo.dish,
@@ -36,30 +36,34 @@ function generateKey(ingredients) {
   return [...ingredients].sort().join("+");
 }
 
+function init() {
+  updateResetButtonState();
+}
+
 const sortedKey = generateKey(selected);
 
-function addIngredient(button, emoji) {
+function toggleIngredient(button, emoji) {
 
-    // check ob button gruen ist
-        // => zutat entfernen
-    // falls nicht gruen
-        // alles wie bisher
+  // check ob button gruen ist
+  // => zutat entfernen
+  // falls nicht gruen
+  // alles wie bisher
 
   if (button.classList.contains("selected")) {
+    // unselect
     selected = selected.filter(item => item !== emoji);
     button.classList.remove("selected");
   } else {
+    // select
     if (selected.includes(emoji)) return;
     selected.push(emoji);
     button.classList.add("selected");
   }
 
   updatePlate();
-  
-  if (selected.length >= 1) {
   updateIngredients();
   updateRecipeInfo();
-}
+  updateResetButtonState();
 
   const sortedKey = [...selected].sort().join("+");
 
@@ -71,10 +75,18 @@ function addIngredient(button, emoji) {
     const article = noArticle.has(result.name) ? "" : "a ";
 
     document.getElementById("message").textContent = `You made ${article}${result.name}!`;
-    
+
   } else {
     document.getElementById("dish").textContent = "";
     document.getElementById("message").textContent = "";
+  }
+}
+
+function updateResetButtonState() {
+  if (selected.length > 0) {
+    document.getElementById('reset-button').classList.remove('disabled')
+  } else {
+    document.getElementById('reset-button').classList.add('disabled')
   }
 }
 
@@ -84,7 +96,7 @@ function updateIngredients() {
     button.classList.remove("disabled");
   });
 
-  rawCombos.forEach(combo => {
+  recipes.forEach(combo => {
     const isMatch = selected.every(ingredient =>
       combo.ingredients.includes(ingredient)
     );
@@ -136,7 +148,7 @@ function resetPlate() {
 function updateRecipeInfo() {
   let matchingCombos = 0;
 
-  rawCombos.forEach(combo => {
+  recipes.forEach(combo => {
     const isMatch = selected.every(ingredient =>
       combo.ingredients.includes(ingredient)
     );
@@ -153,3 +165,6 @@ function updateRecipeInfo() {
     recipeCount.textContent = `${matchingCombos}`;
   }
 }
+
+
+init();
